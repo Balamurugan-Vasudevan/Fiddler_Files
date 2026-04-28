@@ -1,0 +1,39 @@
+=== COMBINED CORRELATIONS : security_updated4 ===
+Generated              : 2026-04-28 15:59:04
+Groups with correlations: 3
+Total dynamic variables : 9
+Total destination links : 9
+
+==================================================================================================================================
+  TABLE 1 — DYNAMIC VARIABLES  (what to extract and from where)
+==================================================================================================================================
+
+  #     |  Group                 |  Variable                      |  Captured Value                        |  Sess   |  Method  |  Source URL                                            |  Response Field                    |  Extractor Hint                                            
+  -----+----------------------+------------------------------+--------------------------------------+-------+--------+------------------------------------------------------+----------------------------------+-----------------------------------------------------------
+  1     |  Select_section_roles  |  ${EVENTTARGET}                |  permissions$searchButton              |  -      |  GET     |  https://test.connexus.com/security/                   |  response.body(html)[name=__EVENT  |  Regex Extractor (response body HTML): name="__EVENTTARGET"
+  2     |  Select_section_roles  |  ${VIEWSTATE}                  |  blVggqyusu15dkm4/Hjogz1GkCDyK+4EWGB1  |  -      |  GET     |  https://test.connexus.com/security/                   |  response.body(html)[name=__VIEWS  |  Regex Extractor (response body HTML): name="__VIEWSTATE"[^
+  3     |  Select_section_roles  |  ${VIEWSTATEGENERATOR}         |  92C27389                              |  -      |  GET     |  https://test.connexus.com/security/                   |  response.body(html)[name=__VIEWS  |  Regex Extractor (response body HTML): name="__VIEWSTATEGEN
+  4     |  Roles                 |  ${EVENTTARGET}                |  roles$searchButton                    |  336    |  GET     |  https://test.connexus.com/security/permissionRoles.a  |  response.body(html)[name=__EVENT  |  Regex Extractor (response body HTML): name="__EVENTTARGET"
+  5     |  Roles                 |  ${VIEWSTATE}                  |  PSaS8KJ6FEoa6DifMz3A2yS2Hp0qFNgH2ZGb  |  336    |  GET     |  https://test.connexus.com/security/permissionRoles.a  |  response.body(html)[name=__VIEWS  |  Regex Extractor (response body HTML): name="__VIEWSTATE"[^
+  6     |  Roles                 |  ${VIEWSTATEGENERATOR}         |  CB34EC08                              |  336    |  GET     |  https://test.connexus.com/security/permissionRoles.a  |  response.body(html)[name=__VIEWS  |  Regex Extractor (response body HTML): name="__VIEWSTATEGEN
+  7     |  location_visibility   |  ${EVENTTARGET}                |  next                                  |  -      |  GET     |  https://test.connexus.com/security/permissionSection  |  response.body(html)[name=__EVENT  |  Regex Extractor (response body HTML): name="__EVENTTARGET"
+  8     |  location_visibility   |  ${VIEWSTATE}                  |  Iardgym2lXnas0+zNBdCV2qNjbx5h47hB5Xc  |  -      |  GET     |  https://test.connexus.com/security/permissionSection  |  response.body(html)[name=__VIEWS  |  Regex Extractor (response body HTML): name="__VIEWSTATE"[^
+  9     |  location_visibility   |  ${VIEWSTATEGENERATOR}         |  00F8D479                              |  -      |  GET     |  https://test.connexus.com/security/permissionSection  |  response.body(html)[name=__VIEWS  |  Regex Extractor (response body HTML): name="__VIEWSTATEGEN
+
+
+==================================================================================================================================
+  TABLE 2 — CORRELATION MAP  (where each variable is consumed)
+==================================================================================================================================
+
+  Group                 |  Variable                      |  Src Sess  |  Dst Sess  |  Dst Method  |  Destination URL                                             |  Destination Field                       
+  ---------------------+------------------------------+----------+----------+------------+------------------------------------------------------------+-----------------------------------------
+  Select_section_roles  |  ${EVENTTARGET}                |  None      |  220       |  POST        |  https://test.connexus.com/security/                         |  request.body(form).__EVENTTARGET        
+  Select_section_roles  |  ${VIEWSTATE}                  |  None      |  220       |  POST        |  https://test.connexus.com/security/                         |  request.body(form).__VIEWSTATE          
+  Select_section_roles  |  ${VIEWSTATEGENERATOR}         |  None      |  220       |  POST        |  https://test.connexus.com/security/                         |  request.body(form).__VIEWSTATEGENERATOR 
+  Roles                 |  ${EVENTTARGET}                |  336       |  367       |  POST        |  https://test.connexus.com/security/permissionRoles.aspx?id  |  request.body(form).__EVENTTARGET        
+  Roles                 |  ${VIEWSTATE}                  |  336       |  367       |  POST        |  https://test.connexus.com/security/permissionRoles.aspx?id  |  request.body(form).__VIEWSTATE          
+  Roles                 |  ${VIEWSTATEGENERATOR}         |  336       |  367       |  POST        |  https://test.connexus.com/security/permissionRoles.aspx?id  |  request.body(form).__VIEWSTATEGENERATOR 
+  location_visibility   |  ${EVENTTARGET}                |  None      |  461       |  POST        |  https://test.connexus.com/security/permissionSectionRoles.  |  request.body(form).__EVENTTARGET        
+  location_visibility   |  ${VIEWSTATE}                  |  None      |  461       |  POST        |  https://test.connexus.com/security/permissionSectionRoles.  |  request.body(form).__VIEWSTATE          
+  location_visibility   |  ${VIEWSTATEGENERATOR}         |  None      |  461       |  POST        |  https://test.connexus.com/security/permissionSectionRoles.  |  request.body(form).__VIEWSTATEGENERATOR 
+
